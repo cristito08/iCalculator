@@ -26,7 +26,7 @@ public class Fibonacci {
             return fibonacciSerie;
         }
 
-        public void serie10(){
+        public void createSerie(){
             int number = 10;   
             int[] array = fiboCalculator(number);
             
@@ -37,9 +37,32 @@ public class Fibonacci {
     }
 
     public static void main(String[] args){
-        ICalculator calc = new ICalculator();
-        calc.serie10();
+        ICalculator print10numbers = new ICalculator();
+        print10numbers.createSerie();
+        Calculator print20numbers = new Calculator();
+        print20numbers.createSerie();
 
+    }
+
+    public static class Calculator extends ICalculator{
+
+        public int addition(int num1, int num2){
+            return num1 + num2;
+        }
+
+        public int substract(int num1, int num2){
+            return num1 - num2;
+        }
+
+        @Override
+        public void createSerie(){
+            int number = 20;   
+            int[] array = super.fiboCalculator(number);
+            
+            for(int i = 0; i < number; i++){
+                System.out.println(array[i]);
+            }
+        }
     }
 }
 
